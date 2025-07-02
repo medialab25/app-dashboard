@@ -199,6 +199,128 @@ For production deployment, consider:
 4. **Setting up SSL/TLS** certificates
 5. **Implementing authentication** if needed
 
+## Docker Support
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Development Mode (with Hot Reload)
+
+For development with automatic code reloading:
+
+```bash
+# Using the unified Docker script
+./docker.sh dev
+
+# Or manually with Docker Compose
+docker-compose -f docker-compose.dev.yml up --build
+```
+
+**Features:**
+- 🔄 **Hot Reload**: Code changes are automatically reflected
+- 📁 **Volume Mounting**: Your local code is mounted into the container
+- 🐛 **Debugging**: Full access to logs and debugging capabilities
+- ⚡ **Fast Development**: No need to rebuild container for code changes
+
+### Production Mode
+
+For production deployment:
+
+```bash
+# Using the unified Docker script
+./docker.sh prod
+
+# Or manually with Docker Compose
+docker-compose up --build
+```
+
+**Features:**
+- 🚀 **Optimized**: Production-optimized container
+- 🔒 **Secure**: Runs as non-root user
+- 🏥 **Health Checks**: Built-in health monitoring
+- 📊 **Monitoring**: Ready for production monitoring
+
+### Docker Commands
+
+#### Using the Unified Script (Recommended)
+```bash
+# Development
+./docker.sh dev              # Start development with hot reload
+./docker.sh dev -d           # Start development in background
+./docker.sh logs -f          # Follow logs
+./docker.sh stop             # Stop all containers
+
+# Production
+./docker.sh prod             # Start production
+./docker.sh prod -d          # Start production in background
+
+# Utility
+./docker.sh build            # Build all images
+./docker.sh status           # Show container status
+./docker.sh clean            # Clean up everything
+./docker.sh shell --dev      # Open shell in dev container
+./docker.sh help             # Show all available commands
+```
+
+#### Manual Docker Compose Commands
+```bash
+# Development
+docker-compose -f docker-compose.dev.yml up --build
+docker-compose -f docker-compose.dev.yml up --build -d
+docker-compose -f docker-compose.dev.yml logs -f
+docker-compose -f docker-compose.dev.yml down
+
+# Production
+docker-compose up --build
+docker-compose up --build -d
+docker-compose logs -f
+docker-compose down
+
+# General
+docker-compose build
+docker-compose -f docker-compose.dev.yml build
+docker-compose down --rmi all
+docker system prune -a
+```
+
+### Docker Configuration
+
+The project includes several Docker-related files:
+
+- `Dockerfile` - Production container configuration
+- `Dockerfile.dev` - Development container configuration
+- `docker-compose.yml` - Production Docker Compose configuration
+- `docker-compose.dev.yml` - Development Docker Compose configuration
+- `.dockerignore` - Files to exclude from Docker builds
+- `requirements.dev.txt` - Development dependencies
+- `docker.sh` - Unified Docker management script
+
+### Environment Variables
+
+You can customize the Docker environment using environment variables:
+
+```bash
+# Development
+ENVIRONMENT=development
+PYTHONPATH=/app
+
+# Production
+ENVIRONMENT=production
+```
+
+### Volume Mounting
+
+In development mode, the following volumes are mounted:
+- `.:/app` - Your local code directory
+- `./config:/app/config:ro` - Configuration files (read-only in production)
+
+This ensures that:
+- Code changes are immediately reflected
+- Configuration can be updated without rebuilding
+- Development is fast and efficient
+
 Example production command:
 ```bash
 gunicorn app.main:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000

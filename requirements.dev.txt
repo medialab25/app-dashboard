@@ -1,0 +1,5 @@
+# Production requirements
+-r requirements.txt
+
+# Development dependencies (optional - for enhanced file watching)
+watchdog==3.0.0 
