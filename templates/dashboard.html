@@ -53,23 +53,15 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {% for app in apps_by_category[category] %}
-                <div class="app-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-200"
+                <a href="/redirect/{{ app.id }}" target="_blank"
+                    class="app-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:shadow-lg hover:border-blue-300 transition-all duration-200 cursor-pointer block"
                     data-name="{{ app.name.lower() }}" data-category="{{ app.category.lower() }}">
                     <div class="p-6 text-center">
                         <div class="mb-4">{{ get_app_icon(app.name, app.category) | safe }}</div>
                         <h4 class="text-lg font-semibold text-gray-900 mb-2">{{ app.name }}</h4>
-                        <p class="text-sm text-gray-600 mb-4">{{ app.description }}</p>
-                        <a href="/redirect/{{ app.id }}" target="_blank"
-                            class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
-                            Launch App
-                            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
-                                </path>
-                            </svg>
-                        </a>
+                        <p class="text-sm text-gray-600">{{ app.description }}</p>
                     </div>
-                </div>
+                </a>
                 {% endfor %}
             </div>
         </div>
@@ -83,6 +75,18 @@
         <p class="text-gray-600">Try adjusting your search terms or category filter.</p>
     </div>
 </div>
+
+<style>
+    .app-card {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .app-card:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -144,8 +148,7 @@
 
         // Add click tracking for analytics (optional)
         appCards.forEach(card => {
-            const link = card.querySelector('a');
-            link.addEventListener('click', function () {
+            card.addEventListener('click', function () {
                 const appName = card.querySelector('h4').textContent;
                 console.log(`App launched: ${appName}`);
             });
