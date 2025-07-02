@@ -8,6 +8,29 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- Custom CSS -->
     <style>
@@ -17,7 +40,14 @@
 
         .app-card:hover {
             transform: translateY(-5px);
+        }
+
+        .light .app-card:hover {
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .dark .app-card:hover {
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
         }
 
         .category-section {
@@ -39,12 +69,25 @@
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
+
+        .dark .gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+
+        /* Dark mode toggle button */
+        .theme-toggle {
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
     </style>
 
     {% block extra_head %}{% endblock %}
 </head>
 
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-200">
     <!-- Navigation -->
     <nav class="gradient-bg text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,6 +100,23 @@
                     <a href="/icons" class="hover:text-gray-200 transition-colors">Icons</a>
                     <a href="/docs" class="hover:text-gray-200 transition-colors">API Docs</a>
                     <a href="/health" class="hover:text-gray-200 transition-colors">Health</a>
+
+                    <!-- Dark Mode Toggle -->
+                    <button id="themeToggle"
+                        class="theme-toggle p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors">
+                        <!-- Sun icon for dark mode -->
+                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <!-- Moon icon for light mode -->
+                        <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -68,13 +128,53 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6 mt-12">
+    <footer class="bg-gray-800 dark:bg-gray-950 text-white py-6 mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <p>&copy; 2024 App Dashboard. Built with FastAPI and Tailwind CSS.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Dark Mode Script -->
+    <script>
+        // Check for saved theme preference or default to light mode
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+
+        // Update icon visibility based on current theme
+        function updateThemeIcon() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+
+            if (isDark) {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        }
+
+        // Initialize icon state
+        updateThemeIcon();
+
+        // Theme toggle functionality
+        document.getElementById('themeToggle').addEventListener('click', function () {
+            const isDark = document.documentElement.classList.contains('dark');
+            const newTheme = isDark ? 'light' : 'dark';
+
+            // Toggle dark class
+            document.documentElement.classList.toggle('dark');
+
+            // Save preference
+            localStorage.setItem('theme', newTheme);
+
+            // Update icon
+            updateThemeIcon();
+        });
+    </script>
 
     {% block extra_scripts %}{% endblock %}
 </body>
