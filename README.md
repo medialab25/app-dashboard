@@ -103,7 +103,6 @@ The configuration file `config/apps.json` now uses a category-based structure fo
 #### Category Fields
 - **description**: Description of what the category contains
 - **icon**: Icon name for the category (optional)
-- **color**: Hex color code for category styling (e.g., "#E5A00D")
 - **apps**: Array of applications in this category
 
 #### App Fields
@@ -122,7 +121,6 @@ The configuration file `config/apps.json` now uses a category-based structure fo
     "Media": {
       "description": "Media streaming, management, and automation tools",
       "icon": "plex",
-      "color": "#E5A00D",
       "apps": [
         {
           "id": "plex",
@@ -136,7 +134,6 @@ The configuration file `config/apps.json` now uses a category-based structure fo
     "Infrastructure": {
       "description": "System management, containers, and infrastructure tools",
       "icon": "docker",
-      "color": "#2496ED",
       "apps": [
         {
           "id": "portainer",

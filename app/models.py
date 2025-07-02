@@ -16,7 +16,6 @@ class Category(BaseModel):
     """Model representing a category with its metadata and apps."""
     description: str
     icon: str
-    color: str
     apps: List[App]
 
 

@@ -45,7 +45,6 @@ class ConfigManager:
                         categories[category_name] = {
                             "description": f"{category_name} applications",
                             "icon": "docker",  # Default icon
-                            "color": "#6C757D",  # Default color
                             "apps": []
                         }
                     categories[category_name]["apps"].append(app)

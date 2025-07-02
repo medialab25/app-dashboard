@@ -3,7 +3,6 @@
     "Media": {
       "description": "Media streaming, management, and automation tools",
       "icon": "plex",
-      "color": "#E5A00D",
       "apps": [
         {
           "id": "plex",
@@ -58,7 +57,6 @@
     "Infrastructure": {
       "description": "System management, containers, and infrastructure tools",
       "icon": "docker",
-      "color": "#2496ED",
       "apps": [
         {
           "id": "portainer",
@@ -105,7 +103,6 @@
     "Monitoring": {
       "description": "System monitoring, metrics, and observability tools",
       "icon": "grafana",
-      "color": "#F46800",
       "apps": [
         {
           "id": "grafana",
@@ -144,7 +141,6 @@
     "Development": {
       "description": "Development tools, IDEs, and coding utilities",
       "icon": "vscode",
-      "color": "#007ACC",
       "apps": [
         {
           "id": "vscode",
@@ -183,7 +179,6 @@
     "Database": {
       "description": "Database management and data storage systems",
       "icon": "mysql",
-      "color": "#4479A1",
       "apps": [
         {
           "id": "mysql",
@@ -230,7 +225,6 @@
     "Productivity": {
       "description": "Productivity tools, collaboration, and office applications",
       "icon": "nextcloud",
-      "color": "#0082C9",
       "apps": [
         {
           "id": "nextcloud",
@@ -269,7 +263,6 @@
     "Security": {
       "description": "Security tools, VPN, and access management",
       "icon": "vault",
-      "color": "#FFEC6E",
       "apps": [
         {
           "id": "vault",
@@ -300,7 +293,6 @@
     "Network": {
       "description": "Network management, DNS, and connectivity tools",
       "icon": "pihole",
-      "color": "#96060B",
       "apps": [
         {
           "id": "pihole",

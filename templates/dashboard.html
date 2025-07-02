@@ -39,8 +39,7 @@
         {% set category_info = all_categories[category] %}
         <div class="category-section mb-12" data-category="{{ category }}">
             <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                <span class="px-3 py-1 rounded-full text-sm font-medium mr-3 category-badge"
-                    data-color="{{ category_info.color }}">
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mr-3">
                     {{ apps_by_category[category]|length }} apps
                 </span>
                 <span class="flex items-center">
@@ -85,23 +84,8 @@
     </div>
 </div>
 
-<style>
-    .category-badge {
-        background-color: var(--category-color, #6C757D)20;
-        color: var(--category-color, #6C757D);
-    }
-</style>
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Set category badge colors
-        document.querySelectorAll('.category-badge').forEach(badge => {
-            const color = badge.dataset.color;
-            if (color) {
-                badge.style.setProperty('--category-color', color);
-            }
-        });
-
         const searchInput = document.getElementById('searchInput');
         const categoryFilter = document.getElementById('categoryFilter');
         const appsContainer = document.getElementById('appsContainer');
