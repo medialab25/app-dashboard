@@ -7,7 +7,7 @@ import logging
 from typing import List
 
 from app.config import config_manager
-from app.models import App, AppResponse
+from app.models import App, AppResponse, CategoryResponse
 from app.icon_utils import get_app_icon
 
 # Configure logging
@@ -34,6 +34,7 @@ async def dashboard(request: Request):
     try:
         apps = config_manager.get_apps()
         categories = config_manager.get_categories()
+        all_categories = config_manager.get_all_categories()
         
         # Group apps by category
         apps_by_category = {}
@@ -47,6 +48,7 @@ async def dashboard(request: Request):
                 "apps": apps,
                 "categories": categories,
                 "apps_by_category": apps_by_category,
+                "all_categories": all_categories,
                 "get_app_icon": get_app_icon
             }
         )
@@ -108,6 +110,41 @@ async def get_categories():
         }
     except Exception as e:
         logger.error(f"Error retrieving categories: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/categories/detailed", response_model=CategoryResponse)
+async def get_categories_detailed():
+    """API endpoint to get all categories with detailed metadata."""
+    try:
+        all_categories = config_manager.get_all_categories()
+        return CategoryResponse(
+            success=True,
+            message="Categories with metadata retrieved successfully",
+            data=all_categories
+        )
+    except Exception as e:
+        logger.error(f"Error retrieving detailed categories: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/categories/{category}")
+async def get_category_info(category: str):
+    """API endpoint to get detailed information about a specific category."""
+    try:
+        category_info = config_manager.get_category_info(category)
+        if not category_info:
+            raise HTTPException(status_code=404, detail="Category not found")
+        
+        return {
+            "success": True,
+            "message": f"Category '{category}' information retrieved successfully",
+            "data": category_info
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error retrieving category {category}: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 

@@ -1,100 +1,332 @@
 {
-  "apps": [
-    {
-      "id": "plex",
-      "name": "Plex",
-      "url": "http://localhost:32400",
+  "categories": {
+    "Media": {
+      "description": "Media streaming, management, and automation tools",
       "icon": "plex",
-      "description": "Media server and streaming platform",
-      "category": "Media"
+      "color": "#E5A00D",
+      "apps": [
+        {
+          "id": "plex",
+          "name": "Plex",
+          "url": "http://localhost:32400",
+          "icon": "plex",
+          "description": "Media server and streaming platform",
+          "category": "Media"
+        },
+        {
+          "id": "jellyfin",
+          "name": "Jellyfin",
+          "url": "http://localhost:8096",
+          "icon": "jellyfin",
+          "description": "Open source media server",
+          "category": "Media"
+        },
+        {
+          "id": "sonarr",
+          "name": "Sonarr",
+          "url": "http://localhost:8989",
+          "icon": "sonarr",
+          "description": "TV show download automation",
+          "category": "Media"
+        },
+        {
+          "id": "radarr",
+          "name": "Radarr",
+          "url": "http://localhost:7878",
+          "icon": "radarr",
+          "description": "Movie download automation",
+          "category": "Media"
+        },
+        {
+          "id": "lidarr",
+          "name": "Lidarr",
+          "url": "http://localhost:8686",
+          "icon": "lidarr",
+          "description": "Music download automation",
+          "category": "Media"
+        },
+        {
+          "id": "readarr",
+          "name": "Readarr",
+          "url": "http://localhost:8787",
+          "icon": "readarr",
+          "description": "Book download automation",
+          "category": "Media"
+        }
+      ]
     },
-    {
-      "id": "sonarr",
-      "name": "Sonarr",
-      "url": "http://localhost:8989",
-      "icon": "sonarr",
-      "description": "TV show download automation",
-      "category": "Media"
-    },
-    {
-      "id": "radarr",
-      "name": "Radarr",
-      "url": "http://localhost:7878",
-      "icon": "radarr",
-      "description": "Movie download automation",
-      "category": "Media"
-    },
-    {
-      "id": "jellyfin",
-      "name": "Jellyfin",
-      "url": "http://localhost:8096",
-      "icon": "jellyfin",
-      "description": "Open source media server",
-      "category": "Media"
-    },
-    {
-      "id": "portainer",
-      "name": "Portainer",
-      "url": "http://localhost:9000",
-      "icon": "portainer",
-      "description": "Docker container management",
-      "category": "Infrastructure"
-    },
-    {
-      "id": "grafana",
-      "name": "Grafana",
-      "url": "http://localhost:3000",
-      "icon": "grafana",
-      "description": "Analytics and monitoring dashboard",
-      "category": "Monitoring"
-    },
-    {
-      "id": "prometheus",
-      "name": "Prometheus",
-      "url": "http://localhost:9090",
-      "icon": "prometheus",
-      "description": "Metrics collection and monitoring",
-      "category": "Monitoring"
-    },
-    {
-      "id": "nextcloud",
-      "name": "Nextcloud",
-      "url": "http://localhost:8080",
-      "icon": "nextcloud",
-      "description": "File sharing and collaboration platform",
-      "category": "Productivity"
-    },
-    {
-      "id": "nginx",
-      "name": "Nginx",
-      "url": "http://localhost:80",
-      "icon": "nginx",
-      "description": "Web server and reverse proxy",
-      "category": "Infrastructure"
-    },
-    {
-      "id": "mysql",
-      "name": "MySQL",
-      "url": "http://localhost:3306",
-      "icon": "mysql",
-      "description": "Database management system",
-      "category": "Database"
-    },
-    {
-      "id": "docker",
-      "name": "Docker",
-      "url": "http://localhost:2375",
+    "Infrastructure": {
+      "description": "System management, containers, and infrastructure tools",
       "icon": "docker",
-      "description": "Container platform",
-      "category": "Infrastructure"
+      "color": "#2496ED",
+      "apps": [
+        {
+          "id": "portainer",
+          "name": "Portainer",
+          "url": "http://localhost:9000",
+          "icon": "portainer",
+          "description": "Docker container management",
+          "category": "Infrastructure"
+        },
+        {
+          "id": "docker",
+          "name": "Docker",
+          "url": "http://localhost:2375",
+          "icon": "docker",
+          "description": "Container platform",
+          "category": "Infrastructure"
+        },
+        {
+          "id": "nginx",
+          "name": "Nginx",
+          "url": "http://localhost:80",
+          "icon": "nginx",
+          "description": "Web server and reverse proxy",
+          "category": "Infrastructure"
+        },
+        {
+          "id": "traefik",
+          "name": "Traefik",
+          "url": "http://localhost:8080",
+          "icon": "traefik",
+          "description": "Modern reverse proxy and load balancer",
+          "category": "Infrastructure"
+        },
+        {
+          "id": "homeassistant",
+          "name": "Home Assistant",
+          "url": "http://localhost:8123",
+          "icon": "homeassistant",
+          "description": "Home automation platform",
+          "category": "Infrastructure"
+        }
+      ]
     },
-    {
-      "id": "vscode",
-      "name": "VS Code Server",
-      "url": "http://localhost:8443",
+    "Monitoring": {
+      "description": "System monitoring, metrics, and observability tools",
+      "icon": "grafana",
+      "color": "#F46800",
+      "apps": [
+        {
+          "id": "grafana",
+          "name": "Grafana",
+          "url": "http://localhost:3000",
+          "icon": "grafana",
+          "description": "Analytics and monitoring dashboard",
+          "category": "Monitoring"
+        },
+        {
+          "id": "prometheus",
+          "name": "Prometheus",
+          "url": "http://localhost:9090",
+          "icon": "prometheus",
+          "description": "Metrics collection and monitoring",
+          "category": "Monitoring"
+        },
+        {
+          "id": "influxdb",
+          "name": "InfluxDB",
+          "url": "http://localhost:8086",
+          "icon": "influxdb",
+          "description": "Time series database",
+          "category": "Monitoring"
+        },
+        {
+          "id": "node-exporter",
+          "name": "Node Exporter",
+          "url": "http://localhost:9100",
+          "icon": "prometheus",
+          "description": "System metrics exporter",
+          "category": "Monitoring"
+        }
+      ]
+    },
+    "Development": {
+      "description": "Development tools, IDEs, and coding utilities",
       "icon": "vscode",
-      "description": "Web-based code editor",
-      "category": "Development"
+      "color": "#007ACC",
+      "apps": [
+        {
+          "id": "vscode",
+          "name": "VS Code Server",
+          "url": "http://localhost:8443",
+          "icon": "vscode",
+          "description": "Web-based code editor",
+          "category": "Development"
+        },
+        {
+          "id": "gitlab",
+          "name": "GitLab",
+          "url": "http://localhost:8080",
+          "icon": "gitlab",
+          "description": "Git repository management",
+          "category": "Development"
+        },
+        {
+          "id": "jenkins",
+          "name": "Jenkins",
+          "url": "http://localhost:8080",
+          "icon": "jenkins",
+          "description": "Continuous integration server",
+          "category": "Development"
+        },
+        {
+          "id": "sonarqube",
+          "name": "SonarQube",
+          "url": "http://localhost:9000",
+          "icon": "sonarqube",
+          "description": "Code quality and security analysis",
+          "category": "Development"
+        }
+      ]
+    },
+    "Database": {
+      "description": "Database management and data storage systems",
+      "icon": "mysql",
+      "color": "#4479A1",
+      "apps": [
+        {
+          "id": "mysql",
+          "name": "MySQL",
+          "url": "http://localhost:3306",
+          "icon": "mysql",
+          "description": "Database management system",
+          "category": "Database"
+        },
+        {
+          "id": "postgresql",
+          "name": "PostgreSQL",
+          "url": "http://localhost:5432",
+          "icon": "postgresql",
+          "description": "Advanced open source database",
+          "category": "Database"
+        },
+        {
+          "id": "redis",
+          "name": "Redis",
+          "url": "http://localhost:6379",
+          "icon": "redis",
+          "description": "In-memory data structure store",
+          "category": "Database"
+        },
+        {
+          "id": "mongodb",
+          "name": "MongoDB",
+          "url": "http://localhost:27017",
+          "icon": "mongodb",
+          "description": "NoSQL document database",
+          "category": "Database"
+        },
+        {
+          "id": "phpmyadmin",
+          "name": "phpMyAdmin",
+          "url": "http://localhost:8080",
+          "icon": "phpmyadmin",
+          "description": "MySQL database administration",
+          "category": "Database"
+        }
+      ]
+    },
+    "Productivity": {
+      "description": "Productivity tools, collaboration, and office applications",
+      "icon": "nextcloud",
+      "color": "#0082C9",
+      "apps": [
+        {
+          "id": "nextcloud",
+          "name": "Nextcloud",
+          "url": "http://localhost:8080",
+          "icon": "nextcloud",
+          "description": "File sharing and collaboration platform",
+          "category": "Productivity"
+        },
+        {
+          "id": "seafile",
+          "name": "Seafile",
+          "url": "http://localhost:8000",
+          "icon": "seafile",
+          "description": "File synchronization and sharing",
+          "category": "Productivity"
+        },
+        {
+          "id": "onlyoffice",
+          "name": "OnlyOffice",
+          "url": "http://localhost:80",
+          "icon": "onlyoffice",
+          "description": "Office suite and document editing",
+          "category": "Productivity"
+        },
+        {
+          "id": "wekan",
+          "name": "Wekan",
+          "url": "http://localhost:8080",
+          "icon": "wekan",
+          "description": "Kanban board for project management",
+          "category": "Productivity"
+        }
+      ]
+    },
+    "Security": {
+      "description": "Security tools, VPN, and access management",
+      "icon": "vault",
+      "color": "#FFEC6E",
+      "apps": [
+        {
+          "id": "vault",
+          "name": "HashiCorp Vault",
+          "url": "http://localhost:8200",
+          "icon": "vault",
+          "description": "Secrets management and encryption",
+          "category": "Security"
+        },
+        {
+          "id": "wireguard",
+          "name": "WireGuard",
+          "url": "http://localhost:51820",
+          "icon": "wireguard",
+          "description": "Fast and secure VPN",
+          "category": "Security"
+        },
+        {
+          "id": "fail2ban",
+          "name": "Fail2Ban",
+          "url": "http://localhost:8080",
+          "icon": "fail2ban",
+          "description": "Intrusion prevention system",
+          "category": "Security"
+        }
+      ]
+    },
+    "Network": {
+      "description": "Network management, DNS, and connectivity tools",
+      "icon": "pihole",
+      "color": "#96060B",
+      "apps": [
+        {
+          "id": "pihole",
+          "name": "Pi-hole",
+          "url": "http://localhost:80",
+          "icon": "pihole",
+          "description": "Network-wide ad blocking",
+          "category": "Network"
+        },
+        {
+          "id": "unbound",
+          "name": "Unbound",
+          "url": "http://localhost:5335",
+          "icon": "unbound",
+          "description": "Validating DNS resolver",
+          "category": "Network"
+        },
+        {
+          "id": "openwrt",
+          "name": "OpenWrt",
+          "url": "http://localhost:80",
+          "icon": "openwrt",
+          "description": "Linux distribution for routers",
+          "category": "Network"
+        }
+      ]
     }
-  ]
+  }
 } 

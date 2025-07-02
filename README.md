@@ -72,50 +72,82 @@ The dashboard features:
 
 ### App Configuration Format
 
-Each application in `config/apps.json` should have the following structure:
+The configuration file `config/apps.json` now uses a category-based structure for better organization:
 
 ```json
 {
-  "id": "unique-app-id",
-  "name": "Display Name",
-  "url": "http://localhost:port",
-  "icon": "app-name",
-  "description": "Brief description of the app",
-  "category": "Category Name"
+  "categories": {
+    "Category Name": {
+      "description": "Category description",
+      "icon": "category-icon",
+      "color": "#HEXCOLOR",
+      "apps": [
+        {
+          "id": "unique-app-id",
+          "name": "Display Name",
+          "url": "http://localhost:port",
+          "icon": "app-name",
+          "description": "Brief description of the app",
+          "category": "Category Name"
+        }
+      ]
+    }
+  }
 }
 ```
 
-**Note**: The `icon` field is now optional. The system will automatically match your app name to the appropriate icon from the Homarr Labs icon collection. You can view all available icons at `/icons`.
+**Note**: The `icon` field is optional for both categories and apps. The system will automatically match names to appropriate icons from the Homarr Labs icon collection. You can view all available icons at `/icons`.
 
 ### Configuration Fields
 
+#### Category Fields
+- **description**: Description of what the category contains
+- **icon**: Icon name for the category (optional)
+- **color**: Hex color code for category styling (e.g., "#E5A00D")
+- **apps**: Array of applications in this category
+
+#### App Fields
 - **id**: Unique identifier for the app (used in URLs)
 - **name**: Display name shown on the dashboard
 - **url**: Full URL where the app is accessible
 - **icon**: Icon name (optional - system will auto-match based on app name)
 - **description**: Brief description of what the app does
-- **category**: Category for grouping apps (e.g., "Development", "Media", "Monitoring")
+- **category**: Category name (must match the category key)
 
 ### Example Configuration
 
 ```json
 {
-  "apps": [
-    {
-      "id": "plex",
-      "name": "Plex",
-      "url": "http://localhost:32400",
-      "description": "Media server and streaming platform",
-      "category": "Media"
+  "categories": {
+    "Media": {
+      "description": "Media streaming, management, and automation tools",
+      "icon": "plex",
+      "color": "#E5A00D",
+      "apps": [
+        {
+          "id": "plex",
+          "name": "Plex",
+          "url": "http://localhost:32400",
+          "description": "Media server and streaming platform",
+          "category": "Media"
+        }
+      ]
     },
-    {
-      "id": "portainer",
-      "name": "Portainer",
-      "url": "http://localhost:9000",
-      "description": "Docker container management",
-      "category": "Infrastructure"
+    "Infrastructure": {
+      "description": "System management, containers, and infrastructure tools",
+      "icon": "docker",
+      "color": "#2496ED",
+      "apps": [
+        {
+          "id": "portainer",
+          "name": "Portainer",
+          "url": "http://localhost:9000",
+          "description": "Docker container management",
+          "category": "Infrastructure"
+        }
+      ]
     }
-  ]
+  }
 }
 ```
 
@@ -147,6 +179,8 @@ The application provides several API endpoints:
 - `GET /api/apps` - Get all applications (JSON)
 - `GET /api/apps/{app_id}` - Get specific application
 - `GET /api/categories` - Get all categories
+- `GET /api/categories/detailed` - Get all categories with metadata
+- `GET /api/categories/{category}` - Get detailed category information
 - `GET /api/apps/category/{category}` - Get apps by category
 - `GET /redirect/{app_id}` - Redirect to specific application
 - `GET /health` - Health check endpoint
