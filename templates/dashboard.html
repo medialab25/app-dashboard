@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}App Dashboard - Home{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+    <!-- Header -->
+    <div class="text-center">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Your Application Dashboard</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Access all your locally installed web applications from one central location.
+            Click on any app to launch it in a new tab.
+        </p>
+    </div>
+
+    <!-- Search and Filter -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div class="relative">
+            <input type="text" id="searchInput" placeholder="Search applications..."
+                class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64">
+            <svg class="absolute left-3 top-2.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+        </div>
+        <select id="categoryFilter"
+            class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <option value="">All Categories</option>
+            {% for category in categories %}
+            <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Apps Grid -->
+    <div id="appsContainer">
+        {% for category in categories %}
+        <div class="category-section mb-12" data-category="{{ category }}">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mr-3">
+                    {{ apps_by_category[category]|length }} apps
+                </span>
+                {{ category }}
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {% for app in apps_by_category[category] %}
+                <div class="app-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-200"
+                    data-name="{{ app.name.lower() }}" data-category="{{ app.category.lower() }}">
+                    <div class="p-6 text-center">
+                        <div class="text-4xl mb-4">{{ app.icon }}</div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2">{{ app.name }}</h4>
+                        <p class="text-sm text-gray-600 mb-4">{{ app.description }}</p>
+                        <a href="/redirect/{{ app.id }}" target="_blank"
+                            class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+                            Launch App
+                            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- No Results Message -->
+    <div id="noResults" class="hidden text-center py-12">
+        <div class="text-6xl mb-4">🔍</div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">No applications found</h3>
+        <p class="text-gray-600">Try adjusting your search terms or category filter.</p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const appsContainer = document.getElementById('appsContainer');
+        const noResults = document.getElementById('noResults');
+        const appCards = document.querySelectorAll('.app-card');
+        const categorySections = document.querySelectorAll('.category-section');
+
+        function filterApps() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categoryFilter.value.toLowerCase();
+            let visibleApps = 0;
+            let visibleCategories = 0;
+
+            categorySections.forEach(section => {
+                const category = section.dataset.category.toLowerCase();
+                const appsInSection = section.querySelectorAll('.app-card');
+                let sectionVisible = false;
+
+                appsInSection.forEach(card => {
+                    const appName = card.dataset.name;
+                    const appCategory = card.dataset.category;
+
+                    const matchesSearch = appName.includes(searchTerm);
+                    const matchesCategory = !selectedCategory || appCategory === selectedCategory;
+
+                    if (matchesSearch && matchesCategory) {
+                        card.style.display = 'block';
+                        visibleApps++;
+                        sectionVisible = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (sectionVisible) {
+                    section.style.display = 'block';
+                    visibleCategories++;
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results message
+            if (visibleApps === 0) {
+                appsContainer.style.display = 'none';
+                noResults.classList.remove('hidden');
+            } else {
+                appsContainer.style.display = 'block';
+                noResults.classList.add('hidden');
+            }
+        }
+
+        // Event listeners
+        searchInput.addEventListener('input', filterApps);
+        categoryFilter.addEventListener('change', filterApps);
+
+        // Add click tracking for analytics (optional)
+        appCards.forEach(card => {
+            const link = card.querySelector('a');
+            link.addEventListener('click', function () {
+                const appName = card.querySelector('h4').textContent;
+                console.log(`App launched: ${appName}`);
+            });
+        });
+    });
+</script>
+{% endblock %}

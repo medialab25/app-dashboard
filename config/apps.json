@@ -1,0 +1,68 @@
+{
+  "apps": [
+    {
+      "id": "homeassistant",
+      "name": "Home Assistant",
+      "url": "http://localhost:8123",
+      "icon": "🏠",
+      "description": "Home automation platform",
+      "category": "Home"
+    },
+    {
+      "id": "portainer",
+      "name": "Portainer",
+      "url": "http://localhost:9000",
+      "icon": "🐳",
+      "description": "Docker container management",
+      "category": "Development"
+    },
+    {
+      "id": "grafana",
+      "name": "Grafana",
+      "url": "http://localhost:3000",
+      "icon": "📊",
+      "description": "Analytics and monitoring",
+      "category": "Monitoring"
+    },
+    {
+      "id": "prometheus",
+      "name": "Prometheus",
+      "url": "http://localhost:9090",
+      "icon": "⚡",
+      "description": "Metrics collection",
+      "category": "Monitoring"
+    },
+    {
+      "id": "jellyfin",
+      "name": "Jellyfin",
+      "url": "http://localhost:8096",
+      "icon": "🎬",
+      "description": "Media server",
+      "category": "Media"
+    },
+    {
+      "id": "nextcloud",
+      "name": "Nextcloud",
+      "url": "http://localhost:8080",
+      "icon": "☁️",
+      "description": "File sharing and collaboration",
+      "category": "Productivity"
+    },
+    {
+      "id": "pihole",
+      "name": "Pi-hole",
+      "url": "http://localhost/admin",
+      "icon": "🛡️",
+      "description": "Network-wide ad blocking",
+      "category": "Network"
+    },
+    {
+      "id": "syncthing",
+      "name": "Syncthing",
+      "url": "http://localhost:8384",
+      "icon": "🔄",
+      "description": "File synchronization",
+      "category": "Productivity"
+    }
+  ]
+} 
