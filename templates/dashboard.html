@@ -49,7 +49,7 @@
                 <div class="app-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-200"
                     data-name="{{ app.name.lower() }}" data-category="{{ app.category.lower() }}">
                     <div class="p-6 text-center">
-                        <div class="text-4xl mb-4">{{ app.icon }}</div>
+                        <div class="mb-4">{{ get_app_icon(app.name, app.category) | safe }}</div>
                         <h4 class="text-lg font-semibold text-gray-900 mb-2">{{ app.name }}</h4>
                         <p class="text-sm text-gray-600 mb-4">{{ app.description }}</p>
                         <a href="/redirect/{{ app.id }}" target="_blank"

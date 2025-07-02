@@ -1,68 +1,100 @@
 {
   "apps": [
     {
-      "id": "homeassistant",
-      "name": "Home Assistant",
-      "url": "http://localhost:8123",
-      "icon": "🏠",
-      "description": "Home automation platform",
-      "category": "Home"
+      "id": "plex",
+      "name": "Plex",
+      "url": "http://localhost:32400",
+      "icon": "plex",
+      "description": "Media server and streaming platform",
+      "category": "Media"
+    },
+    {
+      "id": "sonarr",
+      "name": "Sonarr",
+      "url": "http://localhost:8989",
+      "icon": "sonarr",
+      "description": "TV show download automation",
+      "category": "Media"
+    },
+    {
+      "id": "radarr",
+      "name": "Radarr",
+      "url": "http://localhost:7878",
+      "icon": "radarr",
+      "description": "Movie download automation",
+      "category": "Media"
+    },
+    {
+      "id": "jellyfin",
+      "name": "Jellyfin",
+      "url": "http://localhost:8096",
+      "icon": "jellyfin",
+      "description": "Open source media server",
+      "category": "Media"
     },
     {
       "id": "portainer",
       "name": "Portainer",
       "url": "http://localhost:9000",
-      "icon": "🐳",
+      "icon": "portainer",
       "description": "Docker container management",
-      "category": "Development"
+      "category": "Infrastructure"
     },
     {
       "id": "grafana",
       "name": "Grafana",
       "url": "http://localhost:3000",
-      "icon": "📊",
-      "description": "Analytics and monitoring",
+      "icon": "grafana",
+      "description": "Analytics and monitoring dashboard",
       "category": "Monitoring"
     },
     {
       "id": "prometheus",
       "name": "Prometheus",
       "url": "http://localhost:9090",
-      "icon": "⚡",
-      "description": "Metrics collection",
+      "icon": "prometheus",
+      "description": "Metrics collection and monitoring",
       "category": "Monitoring"
-    },
-    {
-      "id": "jellyfin",
-      "name": "Jellyfin",
-      "url": "http://localhost:8096",
-      "icon": "🎬",
-      "description": "Media server",
-      "category": "Media"
     },
     {
       "id": "nextcloud",
       "name": "Nextcloud",
       "url": "http://localhost:8080",
-      "icon": "☁️",
-      "description": "File sharing and collaboration",
+      "icon": "nextcloud",
+      "description": "File sharing and collaboration platform",
       "category": "Productivity"
     },
     {
-      "id": "pihole",
-      "name": "Pi-hole",
-      "url": "http://localhost/admin",
-      "icon": "🛡️",
-      "description": "Network-wide ad blocking",
-      "category": "Network"
+      "id": "nginx",
+      "name": "Nginx",
+      "url": "http://localhost:80",
+      "icon": "nginx",
+      "description": "Web server and reverse proxy",
+      "category": "Infrastructure"
     },
     {
-      "id": "syncthing",
-      "name": "Syncthing",
-      "url": "http://localhost:8384",
-      "icon": "🔄",
-      "description": "File synchronization",
-      "category": "Productivity"
+      "id": "mysql",
+      "name": "MySQL",
+      "url": "http://localhost:3306",
+      "icon": "mysql",
+      "description": "Database management system",
+      "category": "Database"
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "url": "http://localhost:2375",
+      "icon": "docker",
+      "description": "Container platform",
+      "category": "Infrastructure"
+    },
+    {
+      "id": "vscode",
+      "name": "VS Code Server",
+      "url": "http://localhost:8443",
+      "icon": "vscode",
+      "description": "Web-based code editor",
+      "category": "Development"
     }
   ]
 } 

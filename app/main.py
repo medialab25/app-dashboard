@@ -8,6 +8,7 @@ from typing import List
 
 from app.config import config_manager
 from app.models import App, AppResponse
+from app.icon_utils import get_app_icon
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -45,7 +46,8 @@ async def dashboard(request: Request):
                 "request": request,
                 "apps": apps,
                 "categories": categories,
-                "apps_by_category": apps_by_category
+                "apps_by_category": apps_by_category,
+                "get_app_icon": get_app_icon
             }
         )
     except Exception as e:
@@ -145,6 +147,12 @@ async def redirect_to_app(app_id: str):
 async def health_check():
     """Health check endpoint."""
     return {"status": "healthy", "message": "Dashboard is running"}
+
+
+@app.get("/icons", response_class=HTMLResponse)
+async def icon_gallery(request: Request):
+    """Icon gallery page showing all available icons."""
+    return templates.TemplateResponse("icon_gallery.html", {"request": request})
 
 
 if __name__ == "__main__":

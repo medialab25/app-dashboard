@@ -10,6 +10,7 @@ A modern, responsive web dashboard for managing and accessing locally installed 
 - 🎨 **Beautiful UI**: Modern design with smooth animations and hover effects
 - 📊 **Organized**: Apps are grouped by categories for easy navigation
 - 🔗 **Direct Access**: Click any app to launch it in a new tab
+- 🎯 **Professional Icons**: High-quality SVG icons from Homarr Labs
 - 📝 **API Documentation**: Built-in API docs with FastAPI
 - ⚙️ **Easy Configuration**: Simple JSON configuration file
 
@@ -78,18 +79,20 @@ Each application in `config/apps.json` should have the following structure:
   "id": "unique-app-id",
   "name": "Display Name",
   "url": "http://localhost:port",
-  "icon": "🎯",
+  "icon": "app-name",
   "description": "Brief description of the app",
   "category": "Category Name"
 }
 ```
+
+**Note**: The `icon` field is now optional. The system will automatically match your app name to the appropriate icon from the Homarr Labs icon collection. You can view all available icons at `/icons`.
 
 ### Configuration Fields
 
 - **id**: Unique identifier for the app (used in URLs)
 - **name**: Display name shown on the dashboard
 - **url**: Full URL where the app is accessible
-- **icon**: Emoji or icon to represent the app
+- **icon**: Icon name (optional - system will auto-match based on app name)
 - **description**: Brief description of what the app does
 - **category**: Category for grouping apps (e.g., "Development", "Media", "Monitoring")
 
@@ -99,24 +102,33 @@ Each application in `config/apps.json` should have the following structure:
 {
   "apps": [
     {
-      "id": "homeassistant",
-      "name": "Home Assistant",
-      "url": "http://localhost:8123",
-      "icon": "🏠",
-      "description": "Home automation platform",
-      "category": "Home"
+      "id": "plex",
+      "name": "Plex",
+      "url": "http://localhost:32400",
+      "description": "Media server and streaming platform",
+      "category": "Media"
     },
     {
       "id": "portainer",
       "name": "Portainer",
       "url": "http://localhost:9000",
-      "icon": "🐳",
       "description": "Docker container management",
-      "category": "Development"
+      "category": "Infrastructure"
     }
   ]
 }
 ```
+
+### Icon System
+
+The dashboard uses high-quality SVG icons from the [Homarr Labs Dashboard Icons](https://github.com/homarr-labs/dashboard-icons) repository. The system automatically matches app names to appropriate icons:
+
+- **Direct Match**: "Plex" → Plex icon
+- **Partial Match**: "My Plex Server" → Plex icon  
+- **Category Fallback**: Media category → Plex icon
+- **Default Fallback**: Docker icon
+
+Visit `/icons` to see all available icons and their names.
 
 ## Usage
 

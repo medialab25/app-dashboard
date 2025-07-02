@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}Icon Gallery - App Dashboard{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+    <!-- Header -->
+    <div class="text-center">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Available Icons</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            These icons are from the <a href="https://github.com/homarr-labs/dashboard-icons" target="_blank"
+                class="text-blue-600 hover:text-blue-800 underline">Homarr Labs Dashboard Icons</a> repository.
+            Use the app name or a similar name in your configuration to automatically get the matching icon.
+        </p>
+    </div>
+
+    <!-- Icon Categories -->
+    <div class="space-y-8">
+        <!-- Media Icons -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Media Applications</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/plex.svg" alt="Plex" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">plex</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/sonarr.svg" alt="Sonarr" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">sonarr</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/radarr.svg" alt="Radarr" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">radarr</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/lidarr.svg" alt="Lidarr" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">lidarr</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/readarr.svg" alt="Readarr" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">readarr</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/jellyfin.svg" alt="Jellyfin" class="w-8 h-8 mx-auto">
+                    </div>
+                    <div class="text-sm font-medium text-gray-900">jellyfin</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/emby.svg" alt="Emby" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">emby</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/sabnzbd.svg" alt="SABnzbd" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">sabnzbd</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/qbittorrent.svg" alt="qBittorrent"
+                            class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">qbittorrent</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/transmission.svg" alt="Transmission"
+                            class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">transmission</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Infrastructure Icons -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Infrastructure & DevOps</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/portainer.svg" alt="Portainer" class="w-8 h-8 mx-auto">
+                    </div>
+                    <div class="text-sm font-medium text-gray-900">portainer</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/docker.svg" alt="Docker" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">docker</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/kubernetes.svg" alt="Kubernetes" class="w-8 h-8 mx-auto">
+                    </div>
+                    <div class="text-sm font-medium text-gray-900">kubernetes</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/nginx.svg" alt="Nginx" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">nginx</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/apache.svg" alt="Apache" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">apache</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/jenkins.svg" alt="Jenkins" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">jenkins</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monitoring Icons -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Monitoring & Analytics</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/grafana.svg" alt="Grafana" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">grafana</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/prometheus.svg" alt="Prometheus" class="w-8 h-8 mx-auto">
+                    </div>
+                    <div class="text-sm font-medium text-gray-900">prometheus</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Database Icons -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Databases</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/mysql.svg" alt="MySQL" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">mysql</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/postgresql.svg" alt="PostgreSQL" class="w-8 h-8 mx-auto">
+                    </div>
+                    <div class="text-sm font-medium text-gray-900">postgresql</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/redis.svg" alt="Redis" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">redis</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Development Icons -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Development Tools</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/vscode.svg" alt="VS Code" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">vscode</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/github.svg" alt="GitHub" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">github</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/gitlab.svg" alt="GitLab" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">gitlab</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Web Applications -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Web Applications</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/nextcloud.svg" alt="Nextcloud" class="w-8 h-8 mx-auto">
+                    </div>
+                    <div class="text-sm font-medium text-gray-900">nextcloud</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/wordpress.svg" alt="WordPress" class="w-8 h-8 mx-auto">
+                    </div>
+                    <div class="text-sm font-medium text-gray-900">wordpress</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NAS/Server -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">NAS & Server Platforms</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/synology.svg" alt="Synology" class="w-8 h-8 mx-auto">
+                    </div>
+                    <div class="text-sm font-medium text-gray-900">synology</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/unraid.svg" alt="Unraid" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">unraid</div>
+                </div>
+                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                    <div class="mb-2"><img src="/static/icons/proxmox.svg" alt="Proxmox" class="w-8 h-8 mx-auto"></div>
+                    <div class="text-sm font-medium text-gray-900">proxmox</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Usage Instructions -->
+    <div class="bg-blue-50 rounded-xl p-6">
+        <h3 class="text-xl font-semibold text-blue-900 mb-4">How to Use These Icons</h3>
+        <div class="space-y-3 text-blue-800">
+            <p><strong>Automatic Matching:</strong> The system will automatically match your app name to the closest
+                icon. For example, "My Plex Server" will use the Plex icon.</p>
+            <p><strong>Category Fallbacks:</strong> If no direct match is found, the system will use category-based
+                fallbacks (e.g., "media" category apps get the Plex icon).</p>
+            <p><strong>Default Fallback:</strong> If no match is found, the Docker icon will be used as the default.</p>
+            <p><strong>Configuration:</strong> You can still specify an icon name in your app configuration, but it's
+                not required.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
